@@ -1,4 +1,4 @@
-﻿namespace Assignment2;
+﻿namespace Students;
 
 public enum Status
 {
