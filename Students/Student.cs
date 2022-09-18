@@ -19,6 +19,7 @@ public class Student
         this.endDate = endDate;
         this.graduationDate = graduationDate;
         this.status = CalculateStatus();
+        
     }
 
 private Status CalculateStatus(){

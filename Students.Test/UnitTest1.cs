@@ -48,6 +48,7 @@ public class StudentTest
             new DateTime(2025, 4, 1), Status.Active);
         //Assert
         student.Status.Should().Be(Status.Active);
+        
 
 
     }
