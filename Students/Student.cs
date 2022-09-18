@@ -4,31 +4,36 @@ using System;
 
 public class Student
 {
-    private int id { get;init; }
-    private string GivenName{get; set;}
-    private string surname{get; set;} = "";
-    public Status status {get;}
-    private DateTime startDate{get; set;}
-    private DateTime endDate{get; set;}
-    private DateTime graduationDate { get; set;}
+    public int Id { get;init; }
+    public string GivenName{get; set;}
+    public string Surname{get; set;}
+    
+    public Status Status { get; }
+    public DateTime StartDate{get; set;}
+    public DateTime EndDate{get; set;}
+    public DateTime GraduationDate { get; set;}
 
-    public Student(int id, string GivenName, string surname, DateTime startDate, DateTime endDate, DateTime graduationDate){
-        this.id = id;
-        this.GivenName = GivenName;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.graduationDate = graduationDate;
-        this.status = calculateStatus();
+  
+    public Student(int id, string givenName, string surname, DateTime startDate, DateTime endDate, DateTime graduationDate)
+    {
+        this.Id = id;
+        this.GivenName = givenName;
+        this.Surname = surname;
+        this.StartDate = startDate;
+        this.EndDate = endDate;
+        this.GraduationDate = graduationDate;
+        this.Status = CalculateStatus();
+        
     }
 
-private Status calculateStatus(){
-        if (startDate.Year == DateTime.Now.Year )
+private Status CalculateStatus(){
+        if (StartDate.Year == DateTime.Now.Year )
         {
             return Status.New;
-        } if (endDate < graduationDate)
+        } if (EndDate < GraduationDate)
         {
             return Status.Dropout;
-        } if (graduationDate < DateTime.Now)
+        } if (GraduationDate < DateTime.Now)
         {
             return Status.Graduated;
         }
@@ -37,6 +42,7 @@ private Status calculateStatus(){
 
     public override string ToString()
     {
-        return $"ID: {id}, Full name: {GivenName} {surname}, Status: {status}";
+        return $"ID: {Id}, Full name: {GivenName} {Surname}, Status: {Status}";
     }
+    
 }
