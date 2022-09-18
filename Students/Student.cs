@@ -19,9 +19,10 @@ public class Student
         this.endDate = endDate;
         this.graduationDate = graduationDate;
         this.status = calculateStatus();
+        string s = "";
     }
 
-private Status calculateStatus(){
+public Status calculateStatus(){
         if (startDate.Year == DateTime.Now.Year )
         {
             return Status.New;
@@ -39,4 +40,5 @@ private Status calculateStatus(){
     {
         return $"ID: {id}, Full name: {GivenName} {surname}, Status: {status}";
     }
+    
 }

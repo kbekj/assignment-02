@@ -39,4 +39,40 @@ public class StudentTest
         //Assert
         student.status.Should().Be(Status.Dropout);
     }
+
+    [Fact]
+    public void Immutable_Student_Status()
+    {
+        //Arrange
+        var student = new ImmutableStudent(1, "john", "sturden", new DateTime(2021, 10, 4), new DateTime(2025, 4, 1),
+            new DateTime(2025, 4, 1), Status.Active);
+        //Assert
+        student.Status.Should().Be(Status.Active);
+
+
+    }
+    
+    [Fact]
+    public void Immutable_Student_Name()
+    {
+        //Arrange
+        var student = new ImmutableStudent(1, "john", "sturden", new DateTime(2021, 10, 4), new DateTime(2025, 4, 1),
+            new DateTime(2025, 4, 1), Status.Active);
+        //Assert
+        student.GivenName.Should().Be("john");
+        
+    }
+    
+    [Fact]
+    public void Immutable_Student_ToString()
+    {
+        //Arrange
+        var student = new ImmutableStudent(1, "Billie", "Jean", new DateTime(2021, 10, 4), new DateTime(2025, 4, 1),
+            new DateTime(2025, 4, 1), Status.Active);
+        //Assert
+        student.ToString().Should()
+            .Be(
+                "ImmutableStudent { Id = 1, GivenName = Billie, Surname = Jean, StartDate = 04/10/2021 00.00.00, EndDate = 01/04/2025 00.00.00, GraduationDate = 01/04/2025 00.00.00, Status = Active }");
+
+    }
 }
