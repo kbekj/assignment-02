@@ -63,7 +63,7 @@ public class StudentTest
             new DateTime(2025, 4, 1), Status.Active);
         //Assert
         student.GivenName.Should().Be("john");
-        
+
     }
     
     [Fact]
@@ -74,8 +74,8 @@ public class StudentTest
             new DateTime(2025, 4, 1), Status.Active);
         //Assert
         student.ToString().Should()
-            .Be(
-                "ImmutableStudent { Id = 1, GivenName = Billie, Surname = Jean, StartDate = 04/10/2021 00.00.00, EndDate = 01/04/2025 00.00.00, GraduationDate = 01/04/2025 00.00.00, Status = Active }");
-
+            .BeOneOf(
+                "ImmutableStudent { Id = 1, GivenName = Billie, Surname = Jean, StartDate = 04/10/2021 00.00.00, EndDate = 01/04/2025 00.00.00, GraduationDate = 01/04/2025 00.00.00, Status = Active }","ImmutableStudent { Id = 1, GivenName = Billie, Surname = Jean, StartDate = 10/04/2021 00.00.00, EndDate = 04/01/2025 00.00.00, GraduationDate = 04/01/2025 00.00.00, Status = Active }");
+        //Use of beOneOf is because github is using american time format (MM/DD/YY), where as I recieve european (DD/MM/YY) on my PC.
     }
 }
