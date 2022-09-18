@@ -18,11 +18,10 @@ public class Student
         this.startDate = startDate;
         this.endDate = endDate;
         this.graduationDate = graduationDate;
-        this.status = calculateStatus();
-        string s = "";
+        this.status = CalculateStatus();
     }
 
-public Status calculateStatus(){
+private Status CalculateStatus(){
         if (startDate.Year == DateTime.Now.Year )
         {
             return Status.New;
