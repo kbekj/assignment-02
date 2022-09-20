@@ -2,7 +2,8 @@ namespace Assignment2.Tests;
 
 public class ExtensionsTests
 {
-
+    //-----------------------------------------------------------------------
+    //one-liner tests
     [Fact]
     public void Flatten1_given_1_1_2_2_3_returns_1_2_3()
     {
@@ -55,5 +56,60 @@ public class ExtensionsTests
         var result = Extensions.Filter2(ys);
         result.Should().BeEquivalentTo(new List<int> {2024, 700});
     }
+
+    //---------------------------------------------------------------------------
+    //Custom extension tests:
+    
+    [Fact]
+        public void isSecure_given_safe_returns_true()
+    {
+        var link = new Uri("https://learnit.itu.dk/");
+        var result = Extensions.isSecure(link);
+        result.Should().Be(true);
+    }
+
+        [Fact]
+        public void isSecure_given_notSafe_returns_false()
+    {
+        var link = new Uri("http://info.cern.ch");
+        var result = Extensions.isSecure(link);
+        result.Should().Be(false);
+    }
+
+
+    [Fact]
+    public void WordCount_given_Hello_there_returns_2()
+    {
+        var words = "Hello, there";
+        var result = Extensions.WordCount(words);
+        result.Should().Be(2);
+    }
+
+    [Fact]
+    public void WordCount_given_I_am_22_years_1_old_returns_4()
+    {
+        var words = "I am the 22 years old 1";
+        var result = Extensions.WordCount(words);
+        result.Should().Be(5);
+    }
+
+    [Fact]
+    public void WordCount_given_numbers_returns_null()
+    {
+        var words = "I am the 22 years old 1";
+        var result = Extensions.WordCount(words);
+        result.Should().Be(5);
+    }
+
+        [Fact]
+    public void WordCount_given_null_returns_null()
+    {
+        var words = "I am the 22 years old 1";
+        var result = Extensions.WordCount(words);
+        result.Should().Be(5);
+    }
+
+    
+
 
 }
