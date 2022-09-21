@@ -50,5 +50,28 @@ public class WizardTests
 
         result.Should().Be(1977);
     }
+
+     [Fact]
+    public void HarryPotterWizards(){
+        var wizards = WizardCollection.Create();
+        var result = Queries.HarryPotter1(wizards);
+
+        Assert.Equal(new[] {("Harry Potter", 1997), ("Severus Snape", 1997)}, result);
+    }
+    
+    [Fact]
+    public void Names_in_reverse_order_by_creator_then_name1(){
+        var wizards = WizardCollection.Create();
+        var result = Queries.reverseOrder1(wizards);
+
+        Assert.Equal(new[] {"Jafar", "Dr. Strange", "Darth Vader", "The Wizard Merlin", "Sauron", "Severus Snape", "Harry Potter", "Seth Avalon", "Jaina proudmoore"}, result);
+    }
+    [Fact]
+    public void Names_in_reverse_order_by_creator_then_name2(){
+        var wizards = WizardCollection.Create();
+        var result = Queries.reverseOrder2(wizards);
+
+        Assert.Equal(new[] {"Jafar", "Dr. Strange", "Darth Vader", "The Wizard Merlin", "Sauron", "Severus Snape", "Harry Potter", "Seth Avalon", "Jaina proudmoore"}, result);
+    }
 }
 
