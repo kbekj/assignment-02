@@ -8,8 +8,8 @@ public class Queries
     select  wz.Name 
     ;
 
-    public static IEnumerable<String> Rowling2(IEnumerable<Wizard> wzCol)=> 
-    wzCol.Where(x=>x.Creator.Contains("Rowling")).Cast<string>();
+    public static IEnumerable<String> Rowling2(IEnumerable<Wizard> wzCol)=> throw new NotImplementedException();
+    //wzCol.Where(x=>x.Creator.Contains("Rowling")).ToList();
 
     public static int Sith1(IEnumerable<Wizard> wzCol)=>throw new NotImplementedException()
 
